@@ -13,14 +13,14 @@ neetcode-150-python/                         # root
 │
 ├── solutions/                               # main folder containing problem solutions by topic
 │ ├── Arrays & Hashing/
-│ │ ├── 0001-two-sum.py
-│ │ ├── 0217_contains-duplicate.py
+│ │ ├── 1_two-sum.py
+│ │ ├── 217_contains-duplicate.py
 │ │ └── ...
 │ ├── Sliding Window/
-│ │ ├── 0121_best-time-to-buy-and-sell-stock.py
+│ │ ├── 121_best-time-to-buy-and-sell-stock.py
 │ │ └── ...
 │ ├── Graphs/
-│ │ ├── 0200_number-of-islands.py
+│ │ ├── 200_number-of-islands.py
 │ │ └── ...
 │ └── ...                                    # other topics: tree, dp, greedy, etc.
 │
