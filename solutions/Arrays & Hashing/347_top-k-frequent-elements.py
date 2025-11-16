@@ -25,3 +25,22 @@ class Solution:
 
 # Time Complexity: O(n + k log n)
 # Space Complexity: O(n)
+
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        cnt = Counter(nums)
+        freq = [[] for _ in range(len(nums) +1)]
+
+        for i, j in cnt.items():
+            freq[j].append(i)
+
+        res = []
+        for i in range(len(freq) -1, -1, -1):
+            while freq[i]:
+                res.append(freq[i].pop())
+                if len(res) == k:
+                    return res
+        return []
+    
+# Time Complexity: O(n)
+# Space Complexity: O(n)
