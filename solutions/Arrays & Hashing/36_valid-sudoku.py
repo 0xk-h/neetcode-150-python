@@ -57,3 +57,27 @@ class Solution:
 # [One Pass Solution]
 # Time Complexity: O(1) - board size is fixed
 # Space Complexity: O(1) - board size is fixed
+
+class Solution:
+    def isValidSudoku(self, board: List[List[str]]) -> bool:
+
+        rows = [0] * 9
+        cols = [0] * 9
+        box = [0] * 9
+        
+        for i in range(9):
+            for j in range(9):
+                if board[i][j] != ".":
+                    val = 1 << (int(board[i][j]) - 1)
+                    if val & rows[i] or val & cols[j] or val & box[(i//3)*3 + j//3]:
+                        return False
+
+                    rows[i] |= val
+                    cols[j] |= val
+                    box[(i//3) *3 + j//3] |= val
+
+        return True
+
+# [BitMask Solution]
+# Time Complexity: O(1) - board size is fixed
+# Space Complexity: O(1) - board size is fixed
