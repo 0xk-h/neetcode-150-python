@@ -15,3 +15,6 @@ class Solution:
             acc *= nums[i]
 
         return res
+    
+# Time Complexity: O(n)
+# Space Complexity: O(1) (output array does not count as extra space)
