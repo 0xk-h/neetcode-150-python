@@ -1,6 +1,6 @@
 class Node:
-    def __init__(self, x: int, next: 'Node' = None, random: 'Node' = None):
-        self.val = int(x)
+    def __init__(self, x: int, next = None, random = None):
+        self.val = int(x) if x else 0
         self.next = next
         self.random = random
 
