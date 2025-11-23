@@ -17,6 +17,9 @@ class ListNode:
             curr = curr.next
         return head
 
+    def __hash__(self):
+        return hash(id(self))
+
     def __iter__(self):
         node = self
         while node:

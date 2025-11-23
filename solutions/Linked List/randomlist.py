@@ -21,6 +21,8 @@ class Node:
         
         return nodes[0]
     
+    def __hash__(self):
+        return hash(id(self))
     
     # Only shows the next pointer in the representation.
     def __repr__(self):
