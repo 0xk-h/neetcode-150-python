@@ -24,9 +24,23 @@ class Node:
     def __hash__(self):
         return hash(id(self))
     
-    # Only shows the next pointer in the representation.
     def __repr__(self):
-        return f"Node( { " -> ".join(str(v) for v in self) } )"
+        node_to_idx = {}
+        idx = 0
+        node = self
+        while node:
+            node_to_idx[node] = idx
+            node = node.next
+            idx += 1
+        
+        parts = []
+        node = self
+        while node:
+            r_idx = node_to_idx.get(node.random, None)
+            parts.append(f"{node.val}({r_idx})")
+            node = node.next
+        
+        return " -> ".join(parts)
     
     # Only yeild the next pointer in the iteration.
     def __iter__(self):
