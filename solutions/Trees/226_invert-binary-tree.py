@@ -11,3 +11,6 @@ class Solution:
         self.invertTree(root.left)
         self.invertTree(root.right)
         return root
+    
+# Time Complexity: O(n)
+# Space Complexity: O(1)
