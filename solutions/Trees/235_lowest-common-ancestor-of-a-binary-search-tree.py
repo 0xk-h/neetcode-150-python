@@ -10,7 +10,7 @@ class Solution:
 
         return root
     
-# Time Complexity: O(log n)
+# Time Complexity: O(h)
 # Space Complexity: O(1)
 
 
@@ -27,5 +27,5 @@ class Solution:
             else:
                 return root
             
-# Time Complexity: O(log n)
+# Time Complexity: O(h)
 # Space Complexity: O(1)
