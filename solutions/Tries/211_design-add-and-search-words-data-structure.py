@@ -20,20 +20,18 @@ class WordDictionary:
 
 
     def search(self, word: str) -> bool:
-        self.word = word
 
         def dfs(curr, i):
-            if i == len(self.word):
+            if i == len(word):
                 return curr.end
 
-            if self.word[i] == ".":
+            if word[i] == ".":
                 for node in curr.child.values():
                     if dfs(node, i + 1):
                         return True
 
-            else:
-                if self.word[i] in curr.child:
-                    return dfs(curr.child[self.word[i]], i + 1)
+            elif word[i] in curr.child:
+                return dfs(curr.child[word[i]], i + 1)
 
             return False
 
