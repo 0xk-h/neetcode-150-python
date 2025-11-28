@@ -138,3 +138,72 @@ class Twitter:
 #           Space Complexity:
 #           O(n)
 #---------------------------------------------------------
+
+
+class Twitter:
+
+    def __init__(self):
+        self.tweet = {}
+        self.follower = {}
+        self.time = 0
+        
+
+    def postTweet(self, userId: int, tweetId: int) -> None:
+        if userId in self.tweet:
+            self.tweet[userId].append((self.time, tweetId))
+        else:
+            self.tweet[userId] = [(self.time, tweetId)]
+
+        self.time -= 1
+        
+
+    def getNewsFeed(self, userId: int) -> List[int]:
+        res = []
+        heap = []
+        
+        if userId in self.follower:
+            for user in self.follower[userId]:
+                if user in self.tweet:
+                    idx = len(self.tweet[user]) - 1
+                    time, tweet = self.tweet[user][idx]
+                    heap.append((time, tweet, user, idx))
+
+        if userId in self.tweet:
+            idx = len(self.tweet[userId]) - 1
+            time, tweet = self.tweet[userId][idx]
+            heap.append((time, tweet, userId, idx))
+
+        heapq.heapify(heap)
+
+        while heap and len(res) < 10:
+            time, tweet, user, idx = heapq.heappop(heap)
+            res.append(tweet)
+            if idx > 0:
+                time2, tweet2 = self.tweet[user][idx - 1]
+                heapq.heappush(heap, (time2, tweet2, user, idx - 1))
+
+        return res
+
+
+    def follow(self, followerId: int, followeeId: int) -> None:
+        if followerId in self.follower:
+            self.follower[followerId].add(followeeId)
+        else:
+            self.follower[followerId] = {followeeId}
+        
+
+    def unfollow(self, followerId: int, followeeId: int) -> None:
+        if followerId in self.follower and followeeId in self.follower[followerId]:
+            self.follower[followerId].remove(followeeId)
+        
+
+#---------------------------------------------------------
+#           Time Complexity:
+#           postTweet:       O(1)
+#           getNewsFeed:     O(f)  -> f is the total number of followers
+#           follow:          O(1)
+#           unfollow:        O(1)
+#           
+#           Space Complexity:
+#           O(n)
+#---------------------------------------------------------
