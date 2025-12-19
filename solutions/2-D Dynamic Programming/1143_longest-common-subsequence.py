@@ -101,3 +101,29 @@ class Solution:
     
 # Time Complexity: O(m*n)
 # Space Complexity: O(m*n)
+
+
+class Solution:
+    def longestCommonSubsequence(self, text1: str, text2: str) -> int:
+        if len(text1) < len(text2):
+            text1, text2 = text2, text1
+
+        m, n = len(text1), len(text2)
+        curr = [0] * (n + 1)
+
+        for i in range(m):
+            prev = 0
+            for j in range(1, n + 1):
+                temp = curr[j]
+
+                if text1[i] == text2[j - 1]:
+                    curr[j] = 1 + prev
+                else:
+                    curr[j] = max(curr[j], curr[j - 1])
+
+                prev = temp
+
+        return curr[-1]
+    
+# Time Complexity: O(m*n)
+# Space Complexity: O(min(m, n))
