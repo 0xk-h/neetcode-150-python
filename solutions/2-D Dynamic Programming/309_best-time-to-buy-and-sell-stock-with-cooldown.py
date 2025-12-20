@@ -49,3 +49,22 @@ class Solution:
     
 # Time Complexity: O(n)
 # Space Complexity: O(n)
+
+
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        noStock = 0
+        haveStock = 0
+        afterCooldown = 0
+        temp = 0
+
+        for i in range(len(prices) - 1, -1, -1):
+            afterCooldown = temp
+            temp = noStock
+            noStock = max(haveStock - prices[i], noStock)
+            haveStock = max(afterCooldown + prices[i], haveStock)
+
+        return noStock
+    
+# Time Complexity: O(n)
+# Space Complexity: O(1)
