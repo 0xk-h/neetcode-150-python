@@ -1,4 +1,5 @@
 from typing import List
+from collections import Counter
 
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
@@ -11,6 +12,18 @@ class Solution:
     
 # Time Complexity: O(n)
 # Space Complexity: O(1)
+
+
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        freq = Counter(nums)
+        
+        for num, f in freq.items():
+            if f == 1:
+                return num
+            
+# Time Complexity: O(n)
+# Space Complexity: O(n)
 
 
 class Solution:
