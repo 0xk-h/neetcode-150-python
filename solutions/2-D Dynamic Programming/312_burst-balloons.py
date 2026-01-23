@@ -2,7 +2,7 @@ from typing import List
 from functools import cache
 
 #---------------------------------------------------------------#
-#               Time Limit Exceeded (TLE) Solution
+#               Time Limit Exceeded (TLE) Solution              #
 #---------------------------------------------------------------#
 class Solution:
     def maxCoins(self, nums: List[int]) -> int:
