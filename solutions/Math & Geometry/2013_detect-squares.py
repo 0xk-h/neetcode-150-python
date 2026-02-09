@@ -35,7 +35,7 @@ class DetectSquares:
 #---------------------------------------------------------
 #           Time Complexity:
 #           add:             O(1)
-#           count:           O(n) -> n is the total number of points with the same x coordinate
+#           count:           O(m) -> m is the total number of points with the same x coordinate
 #           
 #           Space Complexity:
 #           O(n) -> n is the total number of unique points
